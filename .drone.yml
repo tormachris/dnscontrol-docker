@@ -1,0 +1,17 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: kaniko
+  image: banzaicloud/drone-kaniko
+  settings:
+    registry: registry.kmlabz.com
+    repo: stargate-cluster/${DRONE_REPO_NAME}
+    username:
+      from_secret: DOCKER_USERNAME
+    password:
+      from_secret: DOCKER_PASSWORD
+    tags:
+      - latest
+      - ${DRONE_BUILD_NUMBER}
