@@ -1,3 +1,3 @@
 FROM golang
 
-RUN GO111MODULE=on go get github.com/StackExchange/dnscontrol/v3
+RUN go install github.com/StackExchange/dnscontrol/v3
